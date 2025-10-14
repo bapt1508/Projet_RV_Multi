@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace com.lineact.lit.FSM
@@ -17,23 +15,39 @@ namespace com.lineact.lit.FSM
             if (stateMachine == null || stateMachine.transform == null)
                 return false;
 
-            GameObject player = GameObject.FindGameObjectWithTag(playerTag);
-            if (player == null)
+            // Trouver le joueur le plus proche
+            GameObject[] players = GameObject.FindGameObjectsWithTag(playerTag);
+            if (players == null || players.Length == 0)
                 return false;
 
-            Vector3 toPlayer = player.transform.position - stateMachine.transform.position;
-            toPlayer.y = 0f; 
+            float closestDistance = Mathf.Infinity;
+            GameObject closestPlayer = null;
 
+            foreach (GameObject player in players)
+            {
+                if (player == null)
+                    continue;
+
+                float distance = Vector3.Distance(stateMachine.transform.position, player.transform.position);
+                if (distance < closestDistance)
+                {
+                    closestDistance = distance;
+                    closestPlayer = player;
+                }
+            }
+
+            if (closestPlayer == null)
+                return false;
+
+            // Calcul de l'angle
+            Vector3 toPlayer = closestPlayer.transform.position - stateMachine.transform.position;
+            toPlayer.y = 0f;
             if (toPlayer.sqrMagnitude < 0.001f)
                 return false;
 
-            
             toPlayer.Normalize();
-
-          
             float angle = Vector3.Angle(stateMachine.transform.forward, toPlayer);
 
-            
             return angle <= maxAngle;
         }
     }
