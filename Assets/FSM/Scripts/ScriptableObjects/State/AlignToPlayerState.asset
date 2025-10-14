@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f5511e3c82fe1e4ead245f111e6ea18, type: 3}
+  m_Name: AlignToPlayerState
+  m_EditorClassIdentifier: 
+  Activities:
+  - {fileID: 11400000, guid: b2d2709b62d202343b4019c6c8f4b415, type: 2}
+  Transitions:
+  - {fileID: 11400000, guid: 3642a6779632fe64b93dc5932bf5fe2a, type: 2}
+  - {fileID: 11400000, guid: 45a9478397c6de54cb46246199b93c54, type: 2}
