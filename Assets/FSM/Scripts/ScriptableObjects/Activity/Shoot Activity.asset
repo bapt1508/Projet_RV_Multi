@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 311b43954e268d143840e92e03ac954d, type: 3}
   m_Name: Shoot Activity
   m_EditorClassIdentifier: 
-  projectilePrefab: {fileID: 0}
+  projectilePrefab: {fileID: 655851606582817594, guid: dd0424159659dd042b1345667761ac0c,
+    type: 3}
   fireRate: 1
   projectileSpeed: 10
+  rotationSpeed: 3
   playerTag: Player

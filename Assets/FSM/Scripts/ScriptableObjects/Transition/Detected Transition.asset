@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1651c089883ce5249b494109c11bedce, type: 3}
   m_Name: Detected Transition
   m_EditorClassIdentifier: 
-  TrueState: {fileID: 0}
+  TrueState: {fileID: 11400000, guid: 696190aa79d6b054eb455c6505210022, type: 2}
   FalseState: {fileID: 0}
   detectionRange: 5
   playerTag: Player
