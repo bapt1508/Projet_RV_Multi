@@ -8,23 +8,37 @@ namespace com.lineact.lit.FSM
     {
         [Header("Detection Settings")]
         public float detectionRange = 5f; 
-        public string playerTag = "Player"; 
+        public string playerTag = "Player";
 
         public override bool Decide(BaseStateMachine stateMachine)
         {
             if (stateMachine == null || stateMachine.transform == null)
                 return false;
 
-            
-            GameObject player = GameObject.FindGameObjectWithTag(playerTag);
-            if (player == null)
+            GameObject[] players = GameObject.FindGameObjectsWithTag(playerTag);
+            if (players == null || players.Length == 0)
                 return false;
 
-            
-            float distance = Vector3.Distance(stateMachine.transform.position, player.transform.position);
+            float closestDistance = Mathf.Infinity;
+            GameObject closestPlayer = null;
 
-            
-            return distance <= detectionRange;
+            foreach (GameObject player in players)
+            {
+                if (player == null)
+                    continue;
+
+                float distance = Vector3.Distance(stateMachine.transform.position, player.transform.position);
+
+                if (distance < closestDistance)
+                {
+                    closestDistance = distance;
+                    closestPlayer = player;
+                }
+            }
+
+            // Si au moins un joueur est dans le rayon
+            return closestPlayer != null && closestDistance <= detectionRange;
         }
+
     }
 }
