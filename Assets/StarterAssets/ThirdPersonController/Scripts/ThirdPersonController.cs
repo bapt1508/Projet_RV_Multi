@@ -12,6 +12,7 @@ namespace StarterAssets
 #if ENABLE_INPUT_SYSTEM 
     [RequireComponent(typeof(PlayerInput))]
 #endif
+
     public class ThirdPersonController : MonoBehaviour
     {
         [Header("Player")]
@@ -109,6 +110,7 @@ namespace StarterAssets
         private const float _threshold = 0.01f;
 
         private bool _hasAnimator;
+        public bool canMove = true;
 
         private bool IsCurrentDeviceMouse
         {
@@ -154,6 +156,8 @@ namespace StarterAssets
 
         private void Update()
         {
+            if (!canMove) return;
+
             _hasAnimator = TryGetComponent(out _animator);
 
             JumpAndGravity();
