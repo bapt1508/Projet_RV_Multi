@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55de611b1380ac34a957f3d6ec552ca1, type: 3}
   m_Name: Aligned Transition
   m_EditorClassIdentifier: 
-  TrueState: {fileID: 0}
+  TrueState: {fileID: 11400000, guid: 7a8dae83ecc15c746a387015427f9ea2, type: 2}
   FalseState: {fileID: 0}
   maxAngle: 30
   playerTag: Player

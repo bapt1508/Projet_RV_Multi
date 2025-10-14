@@ -12,5 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f5511e3c82fe1e4ead245f111e6ea18, type: 3}
   m_Name: ShootState
   m_EditorClassIdentifier: 
-  Activities: []
-  Transitions: []
+  Activities:
+  - {fileID: 11400000, guid: cb6562c76468ab34a9d5f8851e5b143b, type: 2}
+  Transitions:
+  - {fileID: 11400000, guid: 45a9478397c6de54cb46246199b93c54, type: 2}
