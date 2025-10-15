@@ -104,10 +104,10 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 1.2383398
+  m_Radius: 0.9968396
   m_Height: 3.390835
   m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0.10234922, y: 0, z: -0.139151}
 --- !u!114 &3845400919826103567
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -120,8 +120,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eda284a0bd240ca4aa47cf0a2334ec90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bumpForce: 1
-  playertag: Player
+  bumpForce: 15
+  bumpDuration: 0.6
+  playerTag: Player
+  verticalBoost: 1.7
 --- !u!1 &3484898653429089054
 GameObject:
   m_ObjectHideFlags: 0

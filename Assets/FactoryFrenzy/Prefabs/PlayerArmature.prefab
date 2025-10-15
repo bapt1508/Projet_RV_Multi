@@ -909,7 +909,7 @@ CapsuleCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Radius: 0.28
   m_Height: 1.8
@@ -985,6 +985,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7848ba3b38c9e79479e142e12b5cc409, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lastCheckpointPos: {x: 0, y: 0, z: 0}
+  lastCheckpointRot: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &2269649422091140199
 GameObject:
   m_ObjectHideFlags: 0
