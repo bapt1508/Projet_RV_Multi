@@ -106,6 +106,7 @@ namespace StarterAssets
         private CharacterController _controller;
         private StarterAssetsInputs _input;
         private GameObject _mainCamera;
+        public bool cursorLocked = true;
 
         private const float _threshold = 0.01f;
 
@@ -162,6 +163,7 @@ namespace StarterAssets
             JumpAndGravity();
             GroundedCheck();
             Move();
+            CursorLock();
         }
 
         private void LateUpdate()
@@ -176,6 +178,27 @@ namespace StarterAssets
             _animIDJump = Animator.StringToHash("Jump");
             _animIDFreeFall = Animator.StringToHash("FreeFall");
             _animIDMotionSpeed = Animator.StringToHash("MotionSpeed");
+        }
+
+        private void CursorLock()
+        {
+            cursorLocked = _input.cursorlock;
+            if (cursorLocked)
+            {
+
+                Cursor.lockState = CursorLockMode.Locked;
+                Cursor.visible = false;
+
+
+
+            }
+            else
+            {
+
+                Cursor.lockState = CursorLockMode.None;
+                Cursor.visible = true;
+
+            }
         }
 
         private void GroundedCheck()
