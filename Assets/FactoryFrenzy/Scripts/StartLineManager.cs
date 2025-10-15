@@ -14,6 +14,9 @@ public class StartLineManager : NetworkBehaviour
     public override void OnNetworkSpawn()
     {
         if (IsServer) {
+
+            
+
             foreach (var player in FindObjectsOfType<StarterAssets.ThirdPersonController>())
             {
                 player.canMove = false;
