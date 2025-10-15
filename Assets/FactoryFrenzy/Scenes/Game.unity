@@ -136,6 +136,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Platform Classical 520 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 4652329573806549489, guid: facee318fb43b724aa1bad024fad2e8f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6581443949971158542, guid: facee318fb43b724aa1bad024fad2e8f,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -203,6 +208,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 469466267}
+    - targetCorrespondingSourceObject: {fileID: 6581443949971158542, guid: facee318fb43b724aa1bad024fad2e8f,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1334082329}
     - targetCorrespondingSourceObject: {fileID: 6581443949971158542, guid: facee318fb43b724aa1bad024fad2e8f,
         type: 3}
       insertIndex: -1
@@ -625,8 +634,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96ad18aaade6cad4c81560968dbfd431, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  raceResultText: {fileID: 349507179}
-  resultPanel: {fileID: 453938218}
 --- !u!4 &212910947 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6581443949971158542, guid: eac2e128ec83cff40ae9c74a5da924bc,
@@ -794,6 +801,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Trap bumper (34)
       objectReference: {fileID: 0}
+    - target: {fileID: 3484898653429089054, guid: 8c6af07cc68a1834380a34f9491a6212,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -877,6 +889,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Trap bumper (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3484898653429089054, guid: 8c6af07cc68a1834380a34f9491a6212,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1096,6 +1113,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Trap bumper (18)
       objectReference: {fileID: 0}
+    - target: {fileID: 3484898653429089054, guid: 8c6af07cc68a1834380a34f9491a6212,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1258,6 +1280,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Trap bumper (28)
       objectReference: {fileID: 0}
+    - target: {fileID: 3484898653429089054, guid: 8c6af07cc68a1834380a34f9491a6212,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1341,6 +1368,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Trap bumper (31)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3484898653429089054, guid: 8c6af07cc68a1834380a34f9491a6212,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1426,6 +1458,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Trap bumper (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 3484898653429089054, guid: 8c6af07cc68a1834380a34f9491a6212,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1509,6 +1546,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Trap bumper (22)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3484898653429089054, guid: 8c6af07cc68a1834380a34f9491a6212,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1670,6 +1712,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Trap bumper
       objectReference: {fileID: 0}
+    - target: {fileID: 3484898653429089054, guid: 8c6af07cc68a1834380a34f9491a6212,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1753,6 +1800,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Trap bumper (19)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3484898653429089054, guid: 8c6af07cc68a1834380a34f9491a6212,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1838,6 +1890,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Trap bumper (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 3484898653429089054, guid: 8c6af07cc68a1834380a34f9491a6212,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1921,6 +1978,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Trap bumper (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3484898653429089054, guid: 8c6af07cc68a1834380a34f9491a6212,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2074,6 +2136,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Trap bumper (32)
       objectReference: {fileID: 0}
+    - target: {fileID: 3484898653429089054, guid: 8c6af07cc68a1834380a34f9491a6212,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2157,6 +2224,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Trap bumper (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3484898653429089054, guid: 8c6af07cc68a1834380a34f9491a6212,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2516,6 +2588,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Trap bumper (20)
       objectReference: {fileID: 0}
+    - target: {fileID: 3484898653429089054, guid: 8c6af07cc68a1834380a34f9491a6212,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2600,6 +2677,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Trap bumper (17)
       objectReference: {fileID: 0}
+    - target: {fileID: 3484898653429089054, guid: 8c6af07cc68a1834380a34f9491a6212,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2683,6 +2765,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Trap bumper (15)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3484898653429089054, guid: 8c6af07cc68a1834380a34f9491a6212,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2836,6 +2923,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Trap bumper (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 3484898653429089054, guid: 8c6af07cc68a1834380a34f9491a6212,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2920,6 +3012,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Trap bumper (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 3484898653429089054, guid: 8c6af07cc68a1834380a34f9491a6212,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3003,6 +3100,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Trap bumper (24)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3484898653429089054, guid: 8c6af07cc68a1834380a34f9491a6212,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3430,6 +3532,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Trap bumper (30)
       objectReference: {fileID: 0}
+    - target: {fileID: 3484898653429089054, guid: 8c6af07cc68a1834380a34f9491a6212,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3748,6 +3855,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Trap bumper (33)
       objectReference: {fileID: 0}
+    - target: {fileID: 3484898653429089054, guid: 8c6af07cc68a1834380a34f9491a6212,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3898,6 +4010,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Trap bumper (26)
       objectReference: {fileID: 0}
+    - target: {fileID: 3484898653429089054, guid: 8c6af07cc68a1834380a34f9491a6212,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3908,6 +4025,95 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 414936136838897481, guid: 8c6af07cc68a1834380a34f9491a6212,
     type: 3}
   m_PrefabInstance: {fileID: 1333861937}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1334082328
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 69302834}
+    m_Modifications:
+    - target: {fileID: 414936136838897481, guid: 8c6af07cc68a1834380a34f9491a6212,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.033333335
+      objectReference: {fileID: 0}
+    - target: {fileID: 414936136838897481, guid: 8c6af07cc68a1834380a34f9491a6212,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.016666668
+      objectReference: {fileID: 0}
+    - target: {fileID: 414936136838897481, guid: 8c6af07cc68a1834380a34f9491a6212,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.017
+      objectReference: {fileID: 0}
+    - target: {fileID: 414936136838897481, guid: 8c6af07cc68a1834380a34f9491a6212,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -3.56
+      objectReference: {fileID: 0}
+    - target: {fileID: 414936136838897481, guid: 8c6af07cc68a1834380a34f9491a6212,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.46080294
+      objectReference: {fileID: 0}
+    - target: {fileID: 414936136838897481, guid: 8c6af07cc68a1834380a34f9491a6212,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 414936136838897481, guid: 8c6af07cc68a1834380a34f9491a6212,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 414936136838897481, guid: 8c6af07cc68a1834380a34f9491a6212,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 414936136838897481, guid: 8c6af07cc68a1834380a34f9491a6212,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 414936136838897481, guid: 8c6af07cc68a1834380a34f9491a6212,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 414936136838897481, guid: 8c6af07cc68a1834380a34f9491a6212,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 414936136838897481, guid: 8c6af07cc68a1834380a34f9491a6212,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3484898653429089054, guid: 8c6af07cc68a1834380a34f9491a6212,
+        type: 3}
+      propertyPath: m_Name
+      value: Trap bumper (36)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3484898653429089054, guid: 8c6af07cc68a1834380a34f9491a6212,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 8c6af07cc68a1834380a34f9491a6212, type: 3}
+--- !u!4 &1334082329 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 414936136838897481, guid: 8c6af07cc68a1834380a34f9491a6212,
+    type: 3}
+  m_PrefabInstance: {fileID: 1334082328}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1357518035
 PrefabInstance:
@@ -3981,6 +4187,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Trap bumper (16)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3484898653429089054, guid: 8c6af07cc68a1834380a34f9491a6212,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4244,6 +4455,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Trap bumper (13)
       objectReference: {fileID: 0}
+    - target: {fileID: 3484898653429089054, guid: 8c6af07cc68a1834380a34f9491a6212,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4328,6 +4544,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Trap bumper (11)
       objectReference: {fileID: 0}
+    - target: {fileID: 3484898653429089054, guid: 8c6af07cc68a1834380a34f9491a6212,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4411,6 +4632,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Trap bumper (25)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3484898653429089054, guid: 8c6af07cc68a1834380a34f9491a6212,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4675,7 +4901,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1533458744
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4831,6 +5057,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Trap bumper (35)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3484898653429089054, guid: 8c6af07cc68a1834380a34f9491a6212,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5037,6 +5268,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Trap bumper (23)
       objectReference: {fileID: 0}
+    - target: {fileID: 3484898653429089054, guid: 8c6af07cc68a1834380a34f9491a6212,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5209,6 +5445,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Trap bumper (12)
       objectReference: {fileID: 0}
+    - target: {fileID: 3484898653429089054, guid: 8c6af07cc68a1834380a34f9491a6212,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5292,6 +5533,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Trap bumper (21)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3484898653429089054, guid: 8c6af07cc68a1834380a34f9491a6212,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5377,6 +5623,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Trap bumper (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 3484898653429089054, guid: 8c6af07cc68a1834380a34f9491a6212,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5460,6 +5711,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Trap bumper (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3484898653429089054, guid: 8c6af07cc68a1834380a34f9491a6212,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5545,6 +5801,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Trap bumper (14)
       objectReference: {fileID: 0}
+    - target: {fileID: 3484898653429089054, guid: 8c6af07cc68a1834380a34f9491a6212,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5628,6 +5889,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Trap bumper (29)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3484898653429089054, guid: 8c6af07cc68a1834380a34f9491a6212,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5713,6 +5979,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Trap bumper (27)
       objectReference: {fileID: 0}
+    - target: {fileID: 3484898653429089054, guid: 8c6af07cc68a1834380a34f9491a6212,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5796,6 +6067,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Trap bumper (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3484898653429089054, guid: 8c6af07cc68a1834380a34f9491a6212,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
