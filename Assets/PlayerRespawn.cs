@@ -22,8 +22,8 @@ public class PlayerRespawn : NetworkBehaviour
             Respawn();
         }
     }
-
-    public void SetCheckpoint(Vector3 checkpointPos, Quaternion checkpointRot)
+    [ClientRpc]
+    public void SetCheckpointClientRpc(Vector3 checkpointPos, Quaternion checkpointRot)
     {
         lastCheckpointPos = checkpointPos;
         lastCheckpointRot = checkpointRot;

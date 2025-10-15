@@ -109,7 +109,7 @@ public class Checkpoint : NetworkBehaviour
             {
                 var respawn = p.GetComponent<PlayerRespawn>();
                 if (respawn != null)
-                    respawn.SetCheckpoint(checkpointPos, checkpointRot);
+                    respawn.SetCheckpointClientRpc(checkpointPos, checkpointRot);
 
                 if (meshRenderer != null && activeMaterial != null)
                     meshRenderer.material = activeMaterial;

@@ -43,8 +43,7 @@ public class PlayerSpawnManager : NetworkBehaviour
             var playerData = player.GetComponent<PlayerData>();
             var spawnPos = GetNextSpawnPosition();
             var playerSpawn = player.GetComponent<PlayerRespawn>();
-            playerSpawn.lastCheckpointPos = spawnPos.transform.position;
-            playerSpawn.lastCheckpointRot = spawnPos.transform.rotation;
+            playerSpawn.SetCheckpointClientRpc(spawnPos.position, spawnPos.rotation);
 
             playerData.TeleportTo(spawnPos.position, spawnPos.rotation);
         }
