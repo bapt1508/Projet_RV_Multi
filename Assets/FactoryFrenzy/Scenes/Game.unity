@@ -2762,6 +2762,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countdownText: {fileID: 1016169374}
   countdownTime: 3
+  canva: {fileID: 1016169378}
 --- !u!1001 &861876139
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3292,6 +3293,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Platform Start
       objectReference: {fileID: 0}
+    - target: {fileID: 6242923030506788313, guid: fee679bc76b61dc40aa5a12dbbaa8dd0,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3339,6 +3345,18 @@ MonoBehaviour:
   SpawnWithObservers: 1
   DontDestroyWithOwner: 0
   AutoObjectParentSync: 1
+--- !u!1 &1016169377 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2402940910132300668, guid: fee679bc76b61dc40aa5a12dbbaa8dd0,
+    type: 3}
+  m_PrefabInstance: {fileID: 1016169373}
+  m_PrefabAsset: {fileID: 0}
+--- !u!223 &1016169378 stripped
+Canvas:
+  m_CorrespondingSourceObject: {fileID: 8872306446737574292, guid: fee679bc76b61dc40aa5a12dbbaa8dd0,
+    type: 3}
+  m_PrefabInstance: {fileID: 1016169373}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1022463505
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3741,6 +3759,72 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1227845949}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1325745672
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1325745674}
+  - component: {fileID: 1325745675}
+  - component: {fileID: 1325745673}
+  m_Layer: 0
+  m_Name: SpawnManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1325745673
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1325745672}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3cefaf3986ff174fa0adca76768a9cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SpawnPoints: {fileID: 1016169377}
+--- !u!4 &1325745674
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1325745672}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.7515126, y: 0.43427896, z: 2.470048}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1325745675
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1325745672}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 2150209186
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
+  SpawnWithObservers: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
 --- !u!1001 &1333861937
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5628,3 +5712,4 @@ SceneRoots:
   - {fileID: 212910943}
   - {fileID: 574046304}
   - {fileID: 849792183}
+  - {fileID: 1325745674}
