@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Numerics;
 using UnityEngine;
 
 public class FallSpawner : MonoBehaviour
@@ -13,10 +14,13 @@ public class FallSpawner : MonoBehaviour
         if (other.CompareTag(playertag))
             
         {
-            Debug.Log("test");
             CharacterController cr = other.GetComponentInParent<CharacterController>();
             cr.enabled = false;
-            other.transform.SetPositionAndRotation(BaseSpawnPoint.position, BaseSpawnPoint.rotation);
+            var playerRespawn = other.GetComponentInParent<PlayerRespawn>();
+            other.transform.SetPositionAndRotation(
+                playerRespawn.lastCheckpointPos + UnityEngine.Vector3.up * 2f,
+                playerRespawn.lastCheckpointRot
+            );
             StartCoroutine(ReenableCR(cr));
         }
     }
