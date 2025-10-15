@@ -42,7 +42,9 @@ public class PlayerSpawnManager : NetworkBehaviour
             if (player == null) continue;
             var playerData = player.GetComponent<PlayerData>();
             var spawnPos = GetNextSpawnPosition();
-
+            var playerSpawn = player.GetComponent<PlayerRespawn>();
+            playerSpawn.lastCheckpointPos = spawnPos.transform.position;
+            playerSpawn.lastCheckpointRot = spawnPos.transform.rotation;
 
             playerData.TeleportTo(spawnPos.position, spawnPos.rotation);
         }

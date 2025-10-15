@@ -1,4 +1,4 @@
-using UnityEngine;
+/*using UnityEngine;
 using Unity.Netcode;
 using StarterAssets;
 
@@ -59,3 +59,62 @@ public class Checkpoint : NetworkBehaviour
         }
     }
 }
+*/
+
+using UnityEngine;
+using Unity.Netcode;
+using StarterAssets;
+
+public class Checkpoint : NetworkBehaviour
+{
+    [Header("Checkpoint Settings")]
+    public Material inactiveMaterial;
+    public Material activeMaterial;
+    public MeshRenderer meshRenderer;
+
+    private void Start()
+    {
+        if (meshRenderer != null && inactiveMaterial != null)
+            meshRenderer.material = inactiveMaterial;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (!IsServer) return;
+
+        var player = other.GetComponent<NetworkObject>();
+        if (player != null && player.CompareTag("Player"))
+        {
+            ulong playerId = player.OwnerClientId;
+
+            // On envoie au client spécifique via ClientRpcParams
+            ActivateCheckpointClientRpc(transform.position, transform.rotation, new ClientRpcParams
+            {
+                Send = new ClientRpcSendParams
+                {
+                    TargetClientIds = new ulong[] { playerId }
+                }
+            });
+        }
+    }
+
+    [ClientRpc]
+    private void ActivateCheckpointClientRpc(Vector3 checkpointPos, Quaternion checkpointRot, ClientRpcParams clientRpcParams = default)
+    {
+        var localPlayer = FindObjectsOfType<ThirdPersonController>();
+
+        foreach (var p in localPlayer)
+        {
+            if (p.GetComponent<NetworkObject>().IsLocalPlayer)
+            {
+                var respawn = p.GetComponent<PlayerRespawn>();
+                if (respawn != null)
+                    respawn.SetCheckpoint(checkpointPos, checkpointRot);
+
+                if (meshRenderer != null && activeMaterial != null)
+                    meshRenderer.material = activeMaterial;
+            }
+        }
+    }
+}
+
