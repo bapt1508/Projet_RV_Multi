@@ -1,4 +1,5 @@
-﻿ using UnityEngine;
+﻿using Unity.Netcode;
+using UnityEngine;
 #if ENABLE_INPUT_SYSTEM 
 using UnityEngine.InputSystem;
 #endif
@@ -12,8 +13,7 @@ namespace StarterAssets
 #if ENABLE_INPUT_SYSTEM 
     [RequireComponent(typeof(PlayerInput))]
 #endif
-
-    public class ThirdPersonController : MonoBehaviour
+    public class ThirdPersonController : NetworkBehaviour
     {
         [Header("Player")]
         [Tooltip("Move speed of the character in m/s")]
@@ -106,6 +106,7 @@ namespace StarterAssets
         private CharacterController _controller;
         private StarterAssetsInputs _input;
         private GameObject _mainCamera;
+        public bool cursorLocked = true;
 
         private const float _threshold = 0.01f;
 
@@ -125,17 +126,14 @@ namespace StarterAssets
         }
 
 
-        private void Awake()
+        public override void OnNetworkSpawn()
         {
-            // get a reference to our main camera
-            if (_mainCamera == null)
+            if (!IsOwner)
             {
-                _mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
+                return;
             }
-        }
-
-        private void Start()
-        {
+            _mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
+            
             _cinemachineTargetYaw = CinemachineCameraTarget.transform.rotation.eulerAngles.y;
             
             _hasAnimator = TryGetComponent(out _animator);
@@ -154,6 +152,8 @@ namespace StarterAssets
             _fallTimeoutDelta = FallTimeout;
         }
 
+        
+
         private void Update()
         {
             if (!canMove) return;
@@ -163,6 +163,7 @@ namespace StarterAssets
             JumpAndGravity();
             GroundedCheck();
             Move();
+            CursorLock();
         }
 
         private void LateUpdate()
@@ -177,6 +178,27 @@ namespace StarterAssets
             _animIDJump = Animator.StringToHash("Jump");
             _animIDFreeFall = Animator.StringToHash("FreeFall");
             _animIDMotionSpeed = Animator.StringToHash("MotionSpeed");
+        }
+
+        private void CursorLock()
+        {
+            cursorLocked = _input.cursorlock;
+            if (cursorLocked)
+            {
+
+                Cursor.lockState = CursorLockMode.Locked;
+                Cursor.visible = false;
+
+
+
+            }
+            else
+            {
+
+                Cursor.lockState = CursorLockMode.None;
+                Cursor.visible = true;
+
+            }
         }
 
         private void GroundedCheck()
@@ -217,6 +239,10 @@ namespace StarterAssets
 
         private void Move()
         {
+            if (_mainCamera == null)
+            {
+                _mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
+            }
             // set target speed based on move speed, sprint speed and if sprint is pressed
             float targetSpeed = _input.sprint ? SprintSpeed : MoveSpeed;
 

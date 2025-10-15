@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class Bumper : MonoBehaviour
 {
-    public float bumpForce = 800f;
+    public float bumpForce = 5f;
     public string playertag;
 
     void OnTriggerEnter(Collider other)
