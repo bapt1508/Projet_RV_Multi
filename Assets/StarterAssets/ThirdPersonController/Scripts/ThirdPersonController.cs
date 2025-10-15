@@ -87,6 +87,7 @@ namespace StarterAssets
         private float _rotationVelocity;
         private float _verticalVelocity;
         private float _terminalVelocity = 53.0f;
+        private Vector3 _externalForce;
 
         // timeout deltatime
         private float _jumpTimeoutDelta;
@@ -299,7 +300,10 @@ namespace StarterAssets
 
             // move the player
             _controller.Move(targetDirection.normalized * (_speed * Time.deltaTime) +
+                             _externalForce * Time.deltaTime +
                              new Vector3(0.0f, _verticalVelocity, 0.0f) * Time.deltaTime);
+
+            _externalForce = Vector3.zero;
 
             // update animator if using character
             if (_hasAnimator)
@@ -307,6 +311,11 @@ namespace StarterAssets
                 _animator.SetFloat(_animIDSpeed, _animationBlend);
                 _animator.SetFloat(_animIDMotionSpeed, inputMagnitude);
             }
+        }
+
+        public void ApplyExternalForce(Vector3 force)
+        {
+            _externalForce += force;
         }
 
         private void JumpAndGravity()
