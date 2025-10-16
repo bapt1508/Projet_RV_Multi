@@ -87,6 +87,7 @@ namespace StarterAssets
         private float _rotationVelocity;
         private float _verticalVelocity;
         private float _terminalVelocity = 53.0f;
+        private Vector3 _externalForce;
 
         // timeout deltatime
         private float _jumpTimeoutDelta;
@@ -259,8 +260,8 @@ namespace StarterAssets
             float inputMagnitude = _input.analogMovement ? _input.move.magnitude : 1f;
 
             // accelerate or decelerate to target speed
-            if (currentHorizontalSpeed < targetSpeed - speedOffset ||
-                currentHorizontalSpeed > targetSpeed + speedOffset)
+            if (_externalForce == Vector3.zero && (currentHorizontalSpeed < targetSpeed - speedOffset ||
+                currentHorizontalSpeed > targetSpeed + speedOffset))
             {
                 // creates curved result rather than a linear one giving a more organic speed change
                 // note T in Lerp is clamped, so we don't need to clamp our speed
@@ -294,12 +295,15 @@ namespace StarterAssets
                 transform.rotation = Quaternion.Euler(0.0f, rotation, 0.0f);
             }
 
-
             Vector3 targetDirection = Quaternion.Euler(0.0f, _targetRotation, 0.0f) * Vector3.forward;
 
+            Debug.Log("speed : " + _speed + ", external force : " + _externalForce);
             // move the player
             _controller.Move(targetDirection.normalized * (_speed * Time.deltaTime) +
+                             _externalForce * Time.deltaTime +
                              new Vector3(0.0f, _verticalVelocity, 0.0f) * Time.deltaTime);
+
+            _externalForce = Vector3.Lerp(_externalForce, Vector3.zero, Time.deltaTime * 22f);
 
             // update animator if using character
             if (_hasAnimator)
@@ -307,6 +311,11 @@ namespace StarterAssets
                 _animator.SetFloat(_animIDSpeed, _animationBlend);
                 _animator.SetFloat(_animIDMotionSpeed, inputMagnitude);
             }
+        }
+
+        public void ApplyExternalForce(Vector3 force)
+        {
+            _externalForce += force;
         }
 
         private void JumpAndGravity()
