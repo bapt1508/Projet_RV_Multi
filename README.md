@@ -1,6 +1,5 @@
 PC (\* fonctionnalités obligatoires)
 
-Pour l'instant pas de multi
 
 \* PC-PLA-P1 – Character Controller TPS en multijoueurs //fait
 
@@ -14,11 +13,11 @@ PC-PLA-P5 – Plateforme mouvante => https://www.youtube.com/watch?v=ly9mK0TGJJo
 
 PC-PLA-P6 – Plateforme trampoline => Quasi la meme que bumper juste changer direction pour aller que vers le haut
 
-PC-PLA-P7 – Checkpoint
+PC-PLA-P7 – Checkpoint // fait 
 
 
 
-PC-TRA-T1 – Piège Bumper // fait mais cassé
+PC-TRA-T1 – Piège Bumper // fait
 
 \* PC-TRA-T2 – Piège Lanceur  //fait 
 
