@@ -21,6 +21,9 @@ EditorBuildSettings:
     path: Assets/FactoryFrenzy/Scenes/Game.unity
     guid: 9e3dc0df92cc2e04fa8ea970d7f45b5d
   - enabled: 1
+    path: Assets/FactoryFrenzy/Scenes/GameWithSpawn.unity
+    guid: 50944d5dceb80b64c91c5d2a42e228ac
+  - enabled: 1
     path: Assets/FactoryFrenzy/Scenes/ScoreBoard.unity
     guid: f9f5318d461e3a3448b3e20cf71e9b2c
   m_configObjects:
