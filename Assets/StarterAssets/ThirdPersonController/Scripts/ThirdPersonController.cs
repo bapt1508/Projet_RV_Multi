@@ -303,7 +303,7 @@ namespace StarterAssets
                              _externalForce * Time.deltaTime +
                              new Vector3(0.0f, _verticalVelocity, 0.0f) * Time.deltaTime);
 
-            _externalForce = Vector3.Lerp(_externalForce, Vector3.zero, Time.deltaTime * 22f);
+            _externalForce = Vector3.Lerp(_externalForce, Vector3.zero, Time.deltaTime * 4f);
 
             // update animator if using character
             if (_hasAnimator)
