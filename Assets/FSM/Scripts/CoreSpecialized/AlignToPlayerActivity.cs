@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace com.lineact.lit.FSM
@@ -9,8 +8,6 @@ namespace com.lineact.lit.FSM
         [Header("Alignment Settings")]
         public float rotationSpeed = 3f;
         public string playerTag = "Player";
-
-        private Transform playerTransform;
 
         public override void Enter(BaseStateMachine stateMachine)
         {
@@ -37,12 +34,18 @@ namespace com.lineact.lit.FSM
             }
 
             if (closestPlayer != null)
-                playerTransform = closestPlayer.transform;
+            {
+                stateMachine.SetData("playerTransform", closestPlayer.transform);
+            }
         }
 
         public override void Execute(BaseStateMachine stateMachine)
         {
-            if (stateMachine == null || playerTransform == null)
+            if (stateMachine == null)
+                return;
+
+            Transform playerTransform = stateMachine.GetData<Transform>("playerTransform");
+            if (playerTransform == null)
                 return;
 
             Vector3 direction = playerTransform.position - stateMachine.transform.position;
@@ -62,7 +65,7 @@ namespace com.lineact.lit.FSM
 
         public override void Exit(BaseStateMachine stateMachine)
         {
-            playerTransform = null;
+            stateMachine.RemoveData("playerTransform");
         }
     }
 }

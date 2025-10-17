@@ -31,5 +31,41 @@ namespace com.lineact.lit.FSM
             CurrentState = newState;
             CurrentState.Enter(this);
         }
+
+
+
+        private Dictionary<string, object> _data = new Dictionary<string, object>();
+
+        public void SetData(string key, object value)
+        {
+            _data[key] = value;
+        }
+
+        /// <summary>
+        /// Récupère une donnée locale typée. Retourne default(T) si la clé n'existe pas.
+        /// </summary>
+        public T GetData<T>(string key)
+        {
+            if (_data.TryGetValue(key, out object value) && value is T tValue)
+                return tValue;
+
+            return default;
+        }
+
+        /// <summary>
+        /// Supprime une donnée du stockage.
+        /// </summary>
+        public void RemoveData(string key)
+        {
+            _data.Remove(key);
+        }
+
+        /// <summary>
+        /// Vide complètement le stockage (utile à la sortie d’un état).
+        /// </summary>
+        public void ClearData()
+        {
+            _data.Clear();
+        }
     }
 }

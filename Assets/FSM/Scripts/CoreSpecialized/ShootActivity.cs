@@ -12,40 +12,19 @@ namespace com.lineact.lit.FSM
         public float rotationSpeed = 3f;
         public string playerTag = "Player";
 
-        private float lastFireTime = 0f;
-        private Transform playerTransform;
-
         public override void Enter(BaseStateMachine stateMachine)
         {
-            lastFireTime = -1f / fireRate;
+            stateMachine.SetData("lastFireTime", -1f / fireRate);
 
-            // Trouver le joueur le plus proche
-            GameObject[] players = GameObject.FindGameObjectsWithTag(playerTag);
-            if (players == null || players.Length == 0)
-                return;
-
-            float closestDistance = Mathf.Infinity;
-            GameObject closestPlayer = null;
-
-            foreach (GameObject player in players)
-            {
-                if (player == null)
-                    continue;
-
-                float distance = Vector3.Distance(stateMachine.transform.position, player.transform.position);
-                if (distance < closestDistance)
-                {
-                    closestDistance = distance;
-                    closestPlayer = player;
-                }
-            }
-
-            if (closestPlayer != null)
-                playerTransform = closestPlayer.transform;
+            Transform playerTransform = FindClosestPlayer(stateMachine);
+            stateMachine.SetData("playerTransform", playerTransform);
         }
 
         public override void Execute(BaseStateMachine stateMachine)
         {
+            float lastFireTime = stateMachine.GetData<float>("lastFireTime");
+            Transform playerTransform = stateMachine.GetData<Transform>("playerTransform");
+
             if (stateMachine == null || projectilePrefab == null || playerTransform == null)
                 return;
 
@@ -64,16 +43,16 @@ namespace com.lineact.lit.FSM
 
             if (Time.time - lastFireTime >= 1f / fireRate)
             {
-                Shoot(stateMachine);
-                lastFireTime = Time.time;
+                Shoot(stateMachine, playerTransform);
+                stateMachine.SetData("lastFireTime", Time.time);
             }
         }
 
-        private void Shoot(BaseStateMachine stateMachine)
+        private void Shoot(BaseStateMachine stateMachine, Transform playerTransform)
         {
             GameObject projectile = GameObject.Instantiate(
                 projectilePrefab,
-                stateMachine.transform.position + stateMachine.transform.forward * 1f,
+                stateMachine.transform.Find("AXLE 40MM").transform.position + stateMachine.transform.forward * 1f,
                 stateMachine.transform.rotation
             );
 
@@ -86,9 +65,36 @@ namespace com.lineact.lit.FSM
             GameObject.Destroy(projectile, 5f);
         }
 
+        private Transform FindClosestPlayer(BaseStateMachine stateMachine)
+        {
+            GameObject[] players = GameObject.FindGameObjectsWithTag(playerTag);
+            if (players == null || players.Length == 0)
+                return null;
+
+            float closestDistance = Mathf.Infinity;
+            GameObject closestPlayer = null;
+
+            foreach (GameObject player in players)
+            {
+                if (player == null)
+                    continue;
+
+                float distance = Vector3.Distance(stateMachine.transform.position, player.transform.position);
+                if (distance < closestDistance)
+                {
+                    closestDistance = distance;
+                    closestPlayer = player;
+                }
+            }
+
+            return closestPlayer?.transform;
+        }
+
         public override void Exit(BaseStateMachine stateMachine)
         {
-            playerTransform = null;
+            stateMachine.RemoveData("playerTransform");
+            stateMachine.RemoveData("lastFireTime");
         }
     }
 }
+

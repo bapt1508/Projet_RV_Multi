@@ -19,8 +19,8 @@ public class Bullet : MonoBehaviour
 
             if (rb != null && characterController != null)
             {
-                Vector3 direction = transform.position - rb.transform.position; // changer la direction
-
+                //Vector3 direction = transform.position - rb.transform.position; // changer la direction
+                Vector3 direction = other.transform.position - transform.position;
 
 
                 characterController.enabled = false;
