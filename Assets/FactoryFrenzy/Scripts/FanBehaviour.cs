@@ -21,13 +21,11 @@ public class FanBehaviour : MonoBehaviour
 
     void Update()
     {
-        // Fait tourner le ventilateur autour de l’axe Y
         fanModel.Rotate(Vector3.forward, degreesPerSecond * Time.deltaTime, Space.Self);
     }
 
     void OnTriggerStay(Collider other)
     {
-        // Si c’est le joueur ou un objet avec un Rigidbody
         if (other.CompareTag("Player"))
         {
             var controller = other.GetComponent<ThirdPersonController>();

@@ -89,7 +89,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotationSpeed: 150
-  pushForce: 1
+  pushForce: 0.2
   pushDirection: {x: 0, y: 0, z: 1}
   fanModel: {fileID: 2752773567370132481}
 --- !u!1001 &910115789156857328
