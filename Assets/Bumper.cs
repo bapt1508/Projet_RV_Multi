@@ -25,7 +25,6 @@ public class Bumper : MonoBehaviour
         Vector3 direction = (other.transform.position - transform.position).normalized;
 
         direction.y += verticalBoost;
-        direction.Normalize();
 
         controller.ApplyExternalForce(direction * bumpForce);
 
