@@ -10,7 +10,7 @@ public class GameStarter : NetworkBehaviour
 
     void Start()
     {
-        if (IsHost)
+        if (IsServer)
         {
             startText.gameObject.SetActive(true);
             startText.text = "Appuyez sur K pour lancer la partie";
@@ -23,7 +23,7 @@ public class GameStarter : NetworkBehaviour
 
     void Update()
     {
-        if (!IsHost || gameStarted)
+        if (!IsServer || gameStarted)
             return;
 
         if (Input.GetKeyDown(KeyCode.K))
@@ -31,8 +31,8 @@ public class GameStarter : NetworkBehaviour
             Debug.Log("L'hôte lance la partie !");
             gameStarted = true;
             startText.gameObject.SetActive(false);
-
-            StartGameServerRpc();
+            StartGame();
+            //StartGameServerRpc();
         }
     }
 
@@ -46,7 +46,7 @@ public class GameStarter : NetworkBehaviour
         }
     }
 
-    [ServerRpc(RequireOwnership = false)]
+    /*[ServerRpc(RequireOwnership = false)]
     private void StartGameServerRpc(ServerRpcParams rpcParams = default)
     {
         StartGameClientRpc();
@@ -56,7 +56,7 @@ public class GameStarter : NetworkBehaviour
     private void StartGameClientRpc(ClientRpcParams rpcParams = default)
     {
         StartGame();
-    }
+    }*/
 
     private void StartGame()
     {

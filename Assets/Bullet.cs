@@ -27,11 +27,6 @@ public class Bullet : MonoBehaviour
                 rb.isKinematic = false;
 
 
-
-
-                //other.transform.SetPositionAndRotation(new Vector3(other.transform.position.x, 0.3f, other.transform.position.z), other.transform.rotation);
-                //direction.x = direction.x * bumpForce;
-                //direction.z = direction.z * bumpForce;
                 direction.y = 0.1f;
 
                 Debug.Log(direction);

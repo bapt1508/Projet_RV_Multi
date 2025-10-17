@@ -107,9 +107,13 @@ public class Checkpoint : NetworkBehaviour
         {
             if (p.GetComponent<NetworkObject>().IsLocalPlayer)
             {
+                
                 var respawn = p.GetComponent<PlayerRespawn>();
                 if (respawn != null)
-                    respawn.SetCheckpointClientRpc(checkpointPos, checkpointRot);
+                {
+                    Debug.Log("TEST Checkpoint");
+                    respawn.SetCheckpoint(checkpointPos, checkpointRot);
+                }
 
                 if (meshRenderer != null && activeMaterial != null)
                     meshRenderer.material = activeMaterial;

@@ -297,7 +297,7 @@ namespace StarterAssets
 
             Vector3 targetDirection = Quaternion.Euler(0.0f, _targetRotation, 0.0f) * Vector3.forward;
 
-            Debug.Log("speed : " + _speed + ", external force : " + _externalForce);
+            //Debug.Log("speed : " + _speed + ", external force : " + _externalForce);
             // move the player
             _controller.Move(targetDirection.normalized * (_speed * Time.deltaTime) +
                              _externalForce * Time.deltaTime +

@@ -30,6 +30,13 @@ public class PlayerRespawn : NetworkBehaviour
         Debug.Log($"Checkpoint mis à jour : {lastCheckpointPos}, rotation : {lastCheckpointRot.eulerAngles}");
     }
 
+    public void SetCheckpoint(Vector3 checkpointPos, Quaternion checkpointRot)
+    {
+        lastCheckpointPos = checkpointPos;
+        lastCheckpointRot = checkpointRot;
+        Debug.Log($"Checkpoint mis à jour : {lastCheckpointPos}, rotation : {lastCheckpointRot.eulerAngles}");
+    }
+
     private void Respawn()
     {
         transform.position = lastCheckpointPos + Vector3.up * 2f;
