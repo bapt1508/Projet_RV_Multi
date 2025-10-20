@@ -1,12 +1,15 @@
+using JetBrains.Annotations;
+using StarterAssets;
 using System.Collections;
+using TMPro;
 using Unity.Collections;
 using Unity.Netcode;
 using Unity.Netcode.Components;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SocialPlatforms.Impl;
 using static UnityEngine.InputSystem.DefaultInputActions;
-using StarterAssets;
-using Unity.VisualScripting;
 
 public class PlayerData : NetworkBehaviour
 {
@@ -22,6 +25,26 @@ public class PlayerData : NetworkBehaviour
         NetworkVariableReadPermission.Everyone,
         NetworkVariableWritePermission.Server
     );
+    public TMP_Text PseudoField;
+    public Canvas canvas;
+
+    private void Start()
+    {
+
+        PlayerPseudo.OnValueChanged += OnPseudoChanged;
+        UpdatePseudoText(PlayerPseudo.Value.ToString());
+    }
+
+    private void OnPseudoChanged(FixedString64Bytes oldValue, FixedString64Bytes newValue)
+    {
+        UpdatePseudoText(newValue.ToString());
+    }
+
+    private void UpdatePseudoText(string value)
+    {
+        if (PseudoField != null)
+            PseudoField.text = value;
+    }
 
     public override void OnNetworkSpawn()
     {
@@ -35,9 +58,12 @@ public class PlayerData : NetworkBehaviour
         Camera.SetActive(true);
         StarterAssets.enabled = true;
         ThirdPersonController.enabled = true;
+        canvas.enabled = false;
 
 
     }
+
+    
 
     public void TeleportTo(Vector3 position, Quaternion rotation)
     {
@@ -78,7 +104,11 @@ public class PlayerData : NetworkBehaviour
     public void SetPseudoServerRpc(string pseudo)
     {
         PlayerPseudo.Value = new FixedString64Bytes(pseudo);
+        
+
     }
+
+    
 
     [ClientRpc]
     public void DisableMovementAndCollisionsClientRpc()

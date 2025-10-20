@@ -47,7 +47,7 @@ public class ScoreBoardManager : NetworkBehaviour
 
 
 
-    [ClientRpc]
+    /*[ClientRpc]
     private void DisplayScoreboardClientRpc(FixedString64Bytes[] pseudos, int[] scores)
     {
 
@@ -64,6 +64,33 @@ public class ScoreBoardManager : NetworkBehaviour
         StartCoroutine(UnlockCursorNextFrame());
 
 
+    }*/
+
+    [ClientRpc]
+    private void DisplayScoreboardClientRpc(FixedString64Bytes[] pseudos, int[] scores)
+    {
+        // pack dans une liste
+        var list = new List<(FixedString64Bytes pseudo, int score)>();
+        for (int i = 0; i < pseudos.Length; i++)
+            list.Add((pseudos[i], scores[i]));
+
+        // tri croissant sur score
+        list.Sort((a, b) => a.score.CompareTo(b.score));
+        // (si tu veux décroissant : b.score.CompareTo(a.score))
+
+        foreach (Transform child in Panel.transform)
+            Destroy(child.gameObject);
+
+        // affichage trié
+        foreach (var entry in list)
+        {
+            var row = Instantiate(RowPrefab, Panel.transform);
+            var texts = row.GetComponentsInChildren<TMP_Text>();
+            texts[0].text = entry.pseudo.ToString();
+            texts[1].text = entry.score.ToString();
+        }
+
+        StartCoroutine(UnlockCursorNextFrame());
     }
 
     private IEnumerator UnlockCursorNextFrame()
