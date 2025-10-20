@@ -9,9 +9,10 @@ using UnityEngine.SceneManagement;
 public class FinishLineManager : NetworkBehaviour
 {
     [Header("UI")]
+    [SerializeField] private TextMeshProUGUI countdownText;
+
     private List<ulong> finishOrder = new List<ulong>();
     private bool raceEnded = false;
-
     private float raceEndDelay = 10f;
 
     private void OnTriggerEnter(Collider other)
@@ -35,9 +36,7 @@ public class FinishLineManager : NetworkBehaviour
                     {
                         var playerData = playerObject.GetComponent<PlayerData>();
                         if (playerData != null)
-                        {
                             playerData.DisableMovementAndCollisionsClientRpc();
-                        }
 
                         var playerScore = playerObject.GetComponent<PlayerScore>();
                         if (playerScore != null)
@@ -47,13 +46,38 @@ public class FinishLineManager : NetworkBehaviour
 
                 if (position == 1)
                 {
-                    StartCoroutine(EndRaceAfterDelay());
+                    StartCoroutine(EndRaceCountdown());
+                    StartCountdownClientRpc((int)raceEndDelay);
                 }
             }
         }
     }
 
-    private IEnumerator EndRaceAfterDelay()
+    [ClientRpc]
+    private void StartCountdownClientRpc(int duration)
+    {
+        var instance = FindObjectOfType<FinishLineManager>();
+        if (instance != null)
+            instance.StartCoroutine(instance.RunCountdown(duration));
+    }
+
+    private IEnumerator RunCountdown(int duration)
+    {
+        if (countdownText == null) yield break;
+
+        countdownText.gameObject.SetActive(true);
+
+        for (int i = duration; i > 0; i--)
+        {
+            countdownText.text = $"Fin de la course dans {i}s";
+            yield return new WaitForSeconds(1f);
+        }
+
+        countdownText.text = "Fin de la course !";
+        yield return new WaitForSeconds(1f);
+        countdownText.gameObject.SetActive(false);
+    }
+    private IEnumerator EndRaceCountdown()
     {
         yield return new WaitForSeconds(raceEndDelay);
         raceEnded = true;
