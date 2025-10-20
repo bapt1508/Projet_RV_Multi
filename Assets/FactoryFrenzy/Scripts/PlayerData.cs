@@ -9,12 +9,12 @@ using StarterAssets;
 using Unity.VisualScripting;
 
 public class PlayerData : NetworkBehaviour
-    {
-        public PlayerInput PlayerInput;
-        public GameObject Camera;
-        public StarterAssets.StarterAssetsInputs StarterAssets;
-        public StarterAssets.ThirdPersonController ThirdPersonController;
-        public NetworkTransform networkTransform;
+{
+    public PlayerInput PlayerInput;
+    public GameObject Camera;
+    public StarterAssets.StarterAssetsInputs StarterAssets;
+    public StarterAssets.ThirdPersonController ThirdPersonController;
+    public NetworkTransform networkTransform;
 
 
     public NetworkVariable<FixedString64Bytes> PlayerPseudo = new NetworkVariable<FixedString64Bytes>(
@@ -22,66 +22,101 @@ public class PlayerData : NetworkBehaviour
         NetworkVariableReadPermission.Everyone,
         NetworkVariableWritePermission.Server
     );
-        
-        public override void OnNetworkSpawn()
-        {
-        
-            if (!IsOwner)
-            {
-                return;
-            }
-            transform.SetPositionAndRotation(new Vector3(transform.position.x, 1.5f, transform.position.z), transform.rotation);
-            PlayerInput.enabled = true;
-            Camera.SetActive(true);
-            StarterAssets.enabled = true;
-            ThirdPersonController.enabled = true;   
-            
 
+    public override void OnNetworkSpawn()
+    {
+
+        if (!IsOwner)
+        {
+            return;
         }
+        transform.SetPositionAndRotation(new Vector3(transform.position.x, 1.5f, transform.position.z), transform.rotation);
+        PlayerInput.enabled = true;
+        Camera.SetActive(true);
+        StarterAssets.enabled = true;
+        ThirdPersonController.enabled = true;
 
-        public void TeleportTo(Vector3 position, Quaternion rotation)
-        {
 
-            if (IsOwner)
-            {
-                Debug.Log("TP1");
-                var cc = GetComponent<CharacterController>();
-                if (cc) cc.enabled = false;
-                transform.SetPositionAndRotation(position, rotation);
-                if (cc) cc.enabled = true;
-            }
-            else
-            {
-                Debug.Log("TP2");
-                StartCoroutine(TeleportationClient(position, rotation));
-                
-            }
-            
-            
-        }
-        public IEnumerator TeleportationClient(Vector3 position, Quaternion rotation)
-        {
-            yield return null;
-            TeleportClientRpc(position, rotation);
-        }
+    }
 
-        [ClientRpc]
-        public void TeleportClientRpc(Vector3 position, Quaternion rotation)
+    public void TeleportTo(Vector3 position, Quaternion rotation)
+    {
+
+        if (IsOwner)
         {
+            Debug.Log("TP1");
             var cc = GetComponent<CharacterController>();
             if (cc) cc.enabled = false;
             transform.SetPositionAndRotation(position, rotation);
             if (cc) cc.enabled = true;
         }
-
-        
-
-
-
-
-        [ServerRpc(RequireOwnership = true)]
-        public void SetPseudoServerRpc(string pseudo)
+        else
         {
-            PlayerPseudo.Value = new FixedString64Bytes(pseudo);
+            Debug.Log("TP2");
+            StartCoroutine(TeleportationClient(position, rotation));
+
+        }
+
+
+    }
+    public IEnumerator TeleportationClient(Vector3 position, Quaternion rotation)
+    {
+        yield return null;
+        TeleportClientRpc(position, rotation);
+    }
+
+    [ClientRpc]
+    public void TeleportClientRpc(Vector3 position, Quaternion rotation)
+    {
+        var cc = GetComponent<CharacterController>();
+        if (cc) cc.enabled = false;
+        transform.SetPositionAndRotation(position, rotation);
+        if (cc) cc.enabled = true;
+    }
+
+    [ServerRpc(RequireOwnership = true)]
+    public void SetPseudoServerRpc(string pseudo)
+    {
+        PlayerPseudo.Value = new FixedString64Bytes(pseudo);
+    }
+
+    [ClientRpc]
+    public void DisableMovementAndCollisionsClientRpc()
+    {
+        StartCoroutine(DisableAfterDelay());
+    }
+
+    private IEnumerator DisableAfterDelay()
+    {
+        yield return new WaitForSeconds(1f);
+
+        if (ThirdPersonController != null)
+        {
+            ThirdPersonController.canMove = false;
+        }
+
+        var colliders = GetComponentsInChildren<Collider>();
+        foreach (var col in colliders)
+        {
+            col.enabled = false;
+        }
+
+        var rb = GetComponent<Rigidbody>();
+        if (rb != null)
+        {
+            rb.isKinematic = true;
+            rb.velocity = Vector3.zero;
+        }
+
+        var animator = GetComponentInChildren<Animator>();
+        if (animator != null)
+        {
+            animator.SetFloat("Speed", 0f);
+            animator.SetBool("Grounded", true);
+            animator.Play("Idle", 0, 0f);
         }
     }
+}
+
+
+

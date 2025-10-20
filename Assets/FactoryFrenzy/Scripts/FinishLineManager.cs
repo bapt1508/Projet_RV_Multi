@@ -9,26 +9,20 @@ using UnityEngine.SceneManagement;
 public class FinishLineManager : NetworkBehaviour
 {
     [Header("UI")]
-
-
-    private List<ulong> finishOrder = new List<ulong>(); // liste des ID des joueurs arrivés
+    private List<ulong> finishOrder = new List<ulong>();
     private bool raceEnded = false;
 
-    private float raceEndDelay = 10f; // délai avant fin de course
-
+    private float raceEndDelay = 10f;
 
     private void OnTriggerEnter(Collider other)
     {
         if (!IsServer || raceEnded) return;
 
-        // Vérifie si c’est un joueur
-        var player = other.GetComponent<NetworkObject>();
-        if (player != null && player.CompareTag("Player"))
+        var playerNetworkObject = other.GetComponent<NetworkObject>();
+        if (playerNetworkObject != null && playerNetworkObject.CompareTag("Player"))
         {
-            Debug.Log("joueur detecté");
-            ulong playerId = player.OwnerClientId;
+            ulong playerId = playerNetworkObject.OwnerClientId;
 
-            // Si le joueur n’est pas déjà classé
             if (!finishOrder.Contains(playerId))
             {
                 finishOrder.Add(playerId);
@@ -36,17 +30,23 @@ public class FinishLineManager : NetworkBehaviour
 
                 if (NetworkManager.Singleton.ConnectedClients.TryGetValue(playerId, out var client))
                 {
-                    Debug.Log("client trouvé");
-                    var playerScore = client.PlayerObject.GetComponent<PlayerScore>();
-                    if (playerScore != null)
-                        Debug.Log("client actif");
-                    playerScore.AddScoreServerRpc(position);
+                    var playerObject = client.PlayerObject;
+                    if (playerObject != null)
+                    {
+                        var playerData = playerObject.GetComponent<PlayerData>();
+                        if (playerData != null)
+                        {
+                            playerData.DisableMovementAndCollisionsClientRpc();
+                        }
+
+                        var playerScore = playerObject.GetComponent<PlayerScore>();
+                        if (playerScore != null)
+                            playerScore.AddScoreServerRpc(position);
+                    }
                 }
 
-                // Si c’est le premier arrivé → lancer la fin du timer
                 if (position == 1)
                 {
-                    Debug.Log("premier joueur");
                     StartCoroutine(EndRaceAfterDelay());
                 }
             }
@@ -57,22 +57,17 @@ public class FinishLineManager : NetworkBehaviour
     {
         yield return new WaitForSeconds(raceEndDelay);
         raceEnded = true;
-        Debug.Log("fin de partie");
+        Debug.Log("Fin de la partie !");
+
         foreach (var client in NetworkManager.Singleton.ConnectedClientsList)
         {
             var playerData = client.PlayerObject?.GetComponent<PlayerData>();
             if (playerData != null)
             {
-                playerData.ThirdPersonController.canMove = false;
+                playerData.DisableMovementAndCollisionsClientRpc();
             }
         }
 
         NetworkManager.Singleton.SceneManager.LoadScene("ScoreBoard", LoadSceneMode.Single);
-
-
     }
-
-    
-
-    
 }
