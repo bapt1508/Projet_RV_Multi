@@ -51,7 +51,7 @@ public class StartLineManager : NetworkBehaviour
     [ClientRpc]
     private void UpdateCountdownClientRpc(int timeLeft)
     {
-        Debug.Log("Update");
+        
         if (countdownText == null) return;
 
         if (timeLeft > 0)
