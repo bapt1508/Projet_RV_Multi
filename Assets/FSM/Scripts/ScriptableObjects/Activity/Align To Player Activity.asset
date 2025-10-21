@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c653039603dede42a4b6c88482805a9, type: 3}
   m_Name: Align To Player Activity
   m_EditorClassIdentifier: 
-  rotationSpeed: 3
+  rotationSpeed: 6
   playerTag: Player

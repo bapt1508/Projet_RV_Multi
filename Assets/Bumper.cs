@@ -27,6 +27,5 @@ public class Bumper : MonoBehaviour
         direction.y += verticalBoost;
 
         controller.ApplyExternalForce(direction * bumpForce);
-
     }
 }
