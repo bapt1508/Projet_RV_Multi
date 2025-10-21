@@ -9,11 +9,6 @@ public class Bumper : MonoBehaviour
     [Tooltip("Ajoute une force verticale (0 = aucun saut, 1 = même force que horizontale)")]
     public float verticalBoost = 0.4f;
 
-    private void Awake()
-    {
-        GetComponent<Collider>().isTrigger = true;
-    }
-
     private void OnTriggerEnter(Collider other)
     {
         if (!other.CompareTag("Player")) return;

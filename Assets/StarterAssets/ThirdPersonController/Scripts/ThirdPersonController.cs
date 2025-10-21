@@ -1,5 +1,7 @@
 ﻿using Unity.Netcode;
 using UnityEngine;
+using System.Collections;
+
 #if ENABLE_INPUT_SYSTEM 
 using UnityEngine.InputSystem;
 #endif
@@ -88,6 +90,7 @@ namespace StarterAssets
         private float _verticalVelocity;
         private float _terminalVelocity = 53.0f;
         private Vector3 _externalForce;
+        private bool canPush = true;
 
         // timeout deltatime
         private float _jumpTimeoutDelta;
@@ -427,5 +430,52 @@ namespace StarterAssets
                 AudioSource.PlayClipAtPoint(LandingAudioClip, transform.TransformPoint(_controller.center), FootstepAudioVolume);
             }
         }
+
+        private void OnControllerColliderHit(ControllerColliderHit hit)
+        {
+            if (canPush && hit.collider.CompareTag("Player"))
+            {
+                var otherNetworkObject = hit.collider.GetComponent<NetworkObject>();
+                if (otherNetworkObject != null)
+                {
+                    Vector3 direction = hit.collider.transform.position - transform.position;
+                    direction.y = 0f;
+                    direction = direction.normalized;
+
+                    if (IsServer) {
+                        ApplyPushClientRpc(otherNetworkObject.NetworkObjectId, direction * 2f);
+                    } else {
+                        ApplyPushServerRpc(otherNetworkObject.NetworkObjectId, direction * 2f);
+                    }
+                }
+            }
+        }
+
+        [ClientRpc(Delivery = RpcDelivery.Unreliable)]
+        private void ApplyPushClientRpc(ulong targetId, Vector3 force)
+        {
+            if (NetworkManager.Singleton.SpawnManager.SpawnedObjects.TryGetValue(targetId, out NetworkObject targetObj))
+            {
+                var controller = targetObj.GetComponent<ThirdPersonController>();
+                if (controller != null && controller.IsOwner)
+                {
+                    controller.ApplyExternalForce(force);
+                    canPush = false;
+                    StartCoroutine(PushCooldown());
+                }
+            }
+        }
+
+        [ServerRpc(RequireOwnership = false, Delivery = RpcDelivery.Unreliable)]
+        private void ApplyPushServerRpc(ulong targetId, Vector3 force)
+        {
+            ApplyPushClientRpc(targetId, force);
+        }
+
+        private IEnumerator PushCooldown()
+        {
+            yield return new WaitForSeconds(0.5f);
+            canPush = true;
+        }            
     }
 }
