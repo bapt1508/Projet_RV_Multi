@@ -146,5 +146,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16af593dee5b8294faf71f9e40077439, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bumpForce: 75
+  direction: {x: 0, y: 0, z: 0}
+  bumpForce: 22
   playertag: Player

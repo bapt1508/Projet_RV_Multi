@@ -120,7 +120,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eda284a0bd240ca4aa47cf0a2334ec90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bumpForce: 13
+  bumpForce: 16
   verticalBoost: 0.2
 --- !u!1 &3484898653429089054
 GameObject:

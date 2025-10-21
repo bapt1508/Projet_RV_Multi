@@ -6,7 +6,7 @@ namespace com.lineact.lit.FSM
     public class AlignToPlayerActivity : Activity
     {
         [Header("Alignment Settings")]
-        public float rotationSpeed = 3f;
+        public float rotationSpeed = 5f;
         public string playerTag = "Player";
 
         public override void Enter(BaseStateMachine stateMachine)

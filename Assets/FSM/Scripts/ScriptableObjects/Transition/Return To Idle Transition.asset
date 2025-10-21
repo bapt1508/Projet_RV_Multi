@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TrueState: {fileID: 11400000, guid: 20ee1df37ee0e454b9f468e8e89194e8, type: 2}
   FalseState: {fileID: 0}
-  detectionRange: 7
+  detectionRange: 10
   playerTag: Player

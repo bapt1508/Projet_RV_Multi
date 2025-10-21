@@ -1,52 +1,29 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using StarterAssets;
 
 public class Bullet : MonoBehaviour
 {
-    public float bumpForce = 5f;
+    public Vector3 direction;
+    public float bumpForce = 10f;
     public string playertag;
+
     void OnTriggerEnter(Collider other)
     {
-        
-
         if (other.CompareTag(playertag))
         {
-            Rigidbody rb = other.GetComponentInParent<Rigidbody>();
-            CharacterController characterController = rb?.GetComponentInParent<CharacterController>();
+            if (!other.CompareTag("Player")) return;
 
+            ThirdPersonController controller = other.GetComponent<ThirdPersonController>();
 
+            if (controller == null) return;
 
-            if (rb != null && characterController != null)
-            {
-                //Vector3 direction = transform.position - rb.transform.position; // changer la direction
-                Vector3 direction = other.transform.position - transform.position;
+            direction.y = 0.1f;
 
+            controller.ApplyExternalForce(direction * bumpForce);
 
-                characterController.enabled = false;
-                rb.isKinematic = false;
-
-
-                direction.y = 0.1f;
-
-                Debug.Log(direction);
-                rb.AddForce(direction*bumpForce, ForceMode.Impulse);
-
-
-                StartCoroutine(RenableController(characterController, rb));
-            }
+            GameObject.Destroy(gameObject);
         }
     }
-
-    private IEnumerator RenableController(CharacterController cr, Rigidbody rb)
-    {
-        yield return new WaitForSeconds(0.4f);
-
-
-        rb.isKinematic = true;
-
-
-        cr.enabled = true;
-    }
-
 }
