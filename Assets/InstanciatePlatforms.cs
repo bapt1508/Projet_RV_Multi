@@ -15,7 +15,7 @@ public class LevelSpawner : NetworkBehaviour
 
     public override void OnNetworkSpawn()
     {
-        levelJson = Path.Combine(Application.streamingAssetsPath, "save.json");
+        levelJson = GameSceneData.ActiveLevelName;
         if (levelJson == null)
         {
             Debug.LogError("Aucun fichier JSON assigné au LevelSpawner !");
