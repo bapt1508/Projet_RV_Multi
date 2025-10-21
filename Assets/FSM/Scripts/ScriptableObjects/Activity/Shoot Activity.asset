@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 655851606582817594, guid: dd0424159659dd042b1345667761ac0c,
     type: 3}
-  fireRate: 1
+  fireRate: 1.5
   projectileSpeed: 10
-  rotationSpeed: 4
+  rotationSpeed: 6
   playerTag: Player

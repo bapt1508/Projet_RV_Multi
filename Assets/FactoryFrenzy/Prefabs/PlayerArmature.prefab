@@ -767,7 +767,7 @@ MonoBehaviour:
   FallTimeout: 0.15
   Grounded: 1
   GroundedOffset: -0.14
-  GroundedRadius: 0.2
+  GroundedRadius: 0.22
   GroundLayers:
     serializedVersion: 2
     m_Bits: 1
