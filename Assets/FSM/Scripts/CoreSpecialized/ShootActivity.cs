@@ -8,7 +8,7 @@ namespace com.lineact.lit.FSM
         [Header("Shooting Settings")]
         public GameObject projectilePrefab;
         public float fireRate = 1f;
-        public float projectileSpeed = 10f;
+        public float projectileSpeed = 20f;
         public float rotationSpeed = 3f;
         public string playerTag = "Player";
 
@@ -77,9 +77,10 @@ namespace com.lineact.lit.FSM
                 stateMachine.transform.rotation
             );
 
-            if (projectile.TryGetComponent(out Rigidbody rb))
+            if (projectile.TryGetComponent(out Rigidbody rb) && projectile.TryGetComponent(out Bullet bullet))
             {
                 Vector3 direction = (playerTransform.position - stateMachine.transform.position).normalized;
+                bullet.direction = stateMachine.transform.position;
                 rb.velocity = direction * projectileSpeed;
             }
 
