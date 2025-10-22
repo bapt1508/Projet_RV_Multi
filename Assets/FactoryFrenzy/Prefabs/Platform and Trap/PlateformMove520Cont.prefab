@@ -386,8 +386,8 @@ GameObject:
   m_Component:
   - component: {fileID: 3523331556005261866}
   - component: {fileID: 8436418556800623222}
-  - component: {fileID: 6422446121634921172}
   - component: {fileID: 7332967024182040516}
+  - component: {fileID: 6422446121634921172}
   - component: {fileID: 5247859545068906450}
   m_Layer: 0
   m_Name: Platform Move 520
@@ -438,21 +438,6 @@ MonoBehaviour:
   SpawnWithObservers: 1
   DontDestroyWithOwner: 0
   AutoObjectParentSync: 1
---- !u!114 &6422446121634921172
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2656772544201090112}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a14411d0d64c31f46af67de201fa01b1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  StartPoint: {fileID: 3551587413353086620}
-  EndPoint: {fileID: 4649986193681816349}
-  Speed: 5
 --- !u!114 &7332967024182040516
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -483,6 +468,21 @@ MonoBehaviour:
   InLocalSpace: 0
   Interpolate: 1
   SlerpPosition: 0
+--- !u!114 &6422446121634921172
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2656772544201090112}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a14411d0d64c31f46af67de201fa01b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  StartPoint: {fileID: 3551587413353086620}
+  EndPoint: {fileID: 4649986193681816349}
+  Speed: 5
 --- !u!65 &5247859545068906450
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -500,7 +500,7 @@ BoxCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 1
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Size: {x: 0.2731521, y: 0.5010514, z: 0.5}
   m_Center: {x: 0, y: 0, z: 0}
@@ -725,6 +725,7 @@ GameObject:
   - component: {fileID: 3450783432571830566}
   - component: {fileID: 7843277254457658674}
   - component: {fileID: 1008837260523388391}
+  - component: {fileID: 142994017702275914}
   m_Layer: 0
   m_Name: PlateformMove520Cont
   m_TagString: Untagged
@@ -800,6 +801,27 @@ MonoBehaviour:
   InLocalSpace: 0
   Interpolate: 1
   SlerpPosition: 0
+--- !u!65 &142994017702275914
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5375940236067589507}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 8.955524, y: 1, z: 16.929081}
+  m_Center: {x: -0.59213734, y: 0, z: -0.25613976}
 --- !u!1 &5584536635995314271
 GameObject:
   m_ObjectHideFlags: 0

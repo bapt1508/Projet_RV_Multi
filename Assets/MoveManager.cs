@@ -46,13 +46,5 @@ public class MoveManager : NetworkBehaviour
         Debug.Log(_timeToWaypoint);
     }
 
-    public void OnTriggerEnter(Collider other)
-    {
-        other.transform.SetParent(transform);
-    }
-
-    public void OnTriggerExit(Collider other)
-    {
-        other.transform.SetParent(null);
-    }
+    
 }
