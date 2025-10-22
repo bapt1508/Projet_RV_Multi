@@ -1,41 +1,37 @@
-using UnityEngine;
+using System.Collections;
+using StarterAssets;
 using TMPro;
 using Unity.Netcode;
-using System.Collections;
+using UnityEngine;
 
 public class StartLineManager : NetworkBehaviour
 {
+    [Header("UI")]
     public TMP_Text countdownText;
-    public int countdownTime = 3;
     public Canvas canva;
+
+    [Header("Countdown Settings")]
+    public int countdownTime = 3;
 
     private NetworkVariable<bool> raceStarted = new NetworkVariable<bool>(false);
 
     public override void OnNetworkSpawn()
     {
-        if (IsServer) {
+        if (IsServer)
+        {
+            DisableMovementClientRpc();
 
-            
+            ShowCanvasClientRpc(true);
 
-            foreach (var player in FindObjectsOfType<StarterAssets.ThirdPersonController>())
-            {
-                player.canMove = false;
-            }
-            canva.enabled = true;
             Debug.Log("ca commence");
             StartCoroutine(StartCountdown());
         }
-
-                
-            
     }
 
     private IEnumerator StartCountdown()
     {
-
-        
         int currentTime = countdownTime;
-        
+
         while (currentTime > 0)
         {
             UpdateCountdownClientRpc(currentTime);
@@ -45,13 +41,40 @@ public class StartLineManager : NetworkBehaviour
 
         UpdateCountdownClientRpc(0);
         raceStarted.Value = true;
+
         EnableMovementClientRpc();
+    }
+
+    [ClientRpc]
+    private void DisableMovementClientRpc()
+    {
+        foreach (var player in FindObjectsOfType<ThirdPersonController>())
+        {
+            player.canMove = false;
+        }
+    }
+
+    [ClientRpc]
+    private void EnableMovementClientRpc()
+    {
+        foreach (var player in FindObjectsOfType<ThirdPersonController>())
+        {
+            player.canMove = true;
+        }
+
+        StartCoroutine(ClearCountdownText());
+    }
+
+    [ClientRpc]
+    private void ShowCanvasClientRpc(bool show)
+    {
+        if (canva != null)
+            canva.enabled = show;
     }
 
     [ClientRpc]
     private void UpdateCountdownClientRpc(int timeLeft)
     {
-        
         if (countdownText == null) return;
 
         if (timeLeft > 0)
@@ -59,19 +82,8 @@ public class StartLineManager : NetworkBehaviour
         else
             countdownText.text = "GO!";
 
-        countdownText.fontSize = timeLeft == 0 ? 120 : 120;
-        countdownText.color = timeLeft == 0 ? Color.green : Color.white;
-    }
-
-    [ClientRpc]
-    private void EnableMovementClientRpc()
-    {
-        foreach (var player in FindObjectsOfType<StarterAssets.ThirdPersonController>())
-        {
-            player.canMove = true;
-        }
-
-        StartCoroutine(ClearCountdownText());
+        countdownText.fontSize = 120;
+        countdownText.color = (timeLeft == 0) ? Color.green : Color.white;
     }
 
     private IEnumerator ClearCountdownText()
