@@ -20,25 +20,12 @@ namespace com.lineact.lit.FSM
             if (players == null || players.Length == 0)
                 return false;
 
-            float closestDistance = Mathf.Infinity;
-            GameObject closestPlayer = null;
-
-            foreach (GameObject player in players)
-            {
-                if (player == null)
-                    continue;
+            Transform player = stateMachine.GetData<Transform>("playerTransform");
 
                 float distance = Vector3.Distance(stateMachine.transform.position, player.transform.position);
 
-                if (distance < closestDistance)
-                {
-                    closestDistance = distance;
-                    closestPlayer = player;
-                }
-            }
-
-            // Si au moins un joueur est dans le rayon
-            return  closestDistance >= detectionRange;
+                
+            return  distance >= detectionRange;
         }
     }
 }
