@@ -788,6 +788,7 @@ GameObject:
   m_Component:
   - component: {fileID: 838371592617216261}
   - component: {fileID: 2541628980676806957}
+  - component: {fileID: 1560221925123910761}
   m_Layer: 0
   m_Name: Platform Start
   m_TagString: Untagged
@@ -834,6 +835,18 @@ MonoBehaviour:
   SpawnWithObservers: 1
   DontDestroyWithOwner: 0
   AutoObjectParentSync: 1
+--- !u!114 &1560221925123910761
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3603949110668240540}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4b9cf8fa5d432d4c94ee689024f29af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5279612006667068041
 GameObject:
   m_ObjectHideFlags: 0
