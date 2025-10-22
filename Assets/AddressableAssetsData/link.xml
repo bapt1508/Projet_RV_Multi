@@ -18,6 +18,9 @@
   <assembly fullname="Unity.Addressables, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null" preserve="all">
     <type fullname="UnityEngine.AddressableAssets.Addressables" preserve="all" />
   </assembly>
+  <assembly fullname="Unity.Netcode.Components, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+    <type fullname="Unity.Netcode.Components.NetworkTransform" preserve="all" />
+  </assembly>
   <assembly fullname="Unity.Netcode.Runtime, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
     <type fullname="Unity.Netcode.NetworkObject" preserve="all" />
   </assembly>
