@@ -3660,7 +3660,7 @@ PrefabInstance:
     - target: {fileID: 6581443949971158542, guid: 0f6826344350b4a4caeafc5cf1c082d0,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 6.44
+      value: 6.42
       objectReference: {fileID: 0}
     - target: {fileID: 6581443949971158542, guid: 0f6826344350b4a4caeafc5cf1c082d0,
         type: 3}
@@ -8462,12 +8462,12 @@ PrefabInstance:
     - target: {fileID: 6581443949971158542, guid: 0f6826344350b4a4caeafc5cf1c082d0,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.251399
+      value: 4.18
       objectReference: {fileID: 0}
     - target: {fileID: 6581443949971158542, guid: 0f6826344350b4a4caeafc5cf1c082d0,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 6.42
+      value: 6.391
       objectReference: {fileID: 0}
     - target: {fileID: 6581443949971158542, guid: 0f6826344350b4a4caeafc5cf1c082d0,
         type: 3}
@@ -10372,8 +10372,38 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2656772544201090112, guid: 9f605c4f92ff6e34987486a0ff096822,
+        type: 3}
+      insertIndex: 1
+      addedObject: {fileID: 1453080370427635010}
   m_SourcePrefab: {fileID: 100100000, guid: 9f605c4f92ff6e34987486a0ff096822, type: 3}
+--- !u!1 &1453080370427635009 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2656772544201090112, guid: 9f605c4f92ff6e34987486a0ff096822,
+    type: 3}
+  m_PrefabInstance: {fileID: 1453080370427635008}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1453080370427635010
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1453080370427635009}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 1600753979
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
+  SpawnWithObservers: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
 --- !u!1001 &6514948875603782910
 PrefabInstance:
   m_ObjectHideFlags: 0
