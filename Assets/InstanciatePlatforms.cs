@@ -115,7 +115,8 @@ public class LevelSpawner : NetworkBehaviour
 
             // Spawn réseau
             netObj.Spawn();
-
+            NetworkObject netObj2 = instance.transform.Find("Platform Move 520").GetComponent<NetworkObject>();
+            if (netObj2 != null)netObj2.Spawn();
             Debug.Log($"Spawned network object: {objData.name} à {objData.position}");
         }
         else

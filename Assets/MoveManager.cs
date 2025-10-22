@@ -15,14 +15,16 @@ public class MoveManager : NetworkBehaviour
     private float _timeToWaypoint;
     private float _elapsedTime;
     private Transform _destination;
-    public override void OnNetworkSpawn()
+    public void Start()
     {
+        
         TargetWayPoint(StartPoint,EndPoint); 
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
+
         _elapsedTime += Time.deltaTime;
         float elapsedPercentage = _elapsedTime/_timeToWaypoint;
         elapsedPercentage = Mathf.SmoothStep(0, 1, elapsedPercentage);
