@@ -45,6 +45,10 @@ public class LevelSpawner : NetworkBehaviour
         {
             yield return StartCoroutine(SpawnFromAddressables(objData));
         }
+        foreach(var movData in sceneData.moves)
+        {
+            yield return StartCoroutine(SpawnMovesFromAddressables(movData));
+        }
     }
 
     private IEnumerator SpawnFromAddressables(ObjectData objData)
@@ -64,6 +68,43 @@ public class LevelSpawner : NetworkBehaviour
 
             GameObject instance = Instantiate(prefab, objData.position, objData.rotation);
 
+            // Vérifie que le prefab a un NetworkObject
+            NetworkObject netObj = instance.GetComponent<NetworkObject>();
+            if (netObj == null)
+            {
+                Debug.LogWarning($"Le prefab '{objData.name}' n'a pas de NetworkObject — il ne sera pas synchronisé !");
+                yield break;
+            }
+
+            // Spawn réseau
+            netObj.Spawn();
+
+            Debug.Log($"Spawned network object: {objData.name} à {objData.position}");
+        }
+        else
+        {
+            Debug.LogWarning($"Échec du chargement de l'adressable: {objData.name}");
+        }
+    }
+
+    private IEnumerator SpawnMovesFromAddressables(MoveData objData)
+    {
+        AsyncOperationHandle<GameObject> handle = Addressables.LoadAssetAsync<GameObject>(objData.name);
+        yield return handle;
+
+        if (handle.Status == AsyncOperationStatus.Succeeded)
+        {
+            GameObject prefab = handle.Result;
+
+            if (prefab == null)
+            {
+                Debug.LogWarning($"Prefab introuvable pour l'adressableKey: {objData.name}");
+                yield break;
+            }
+
+            GameObject instance = Instantiate(prefab, objData.position, objData.rotation);
+            instance.transform.Find("Platform Move 520").GetComponent<MoveManager>().Speed = objData.Speed;
+            instance.transform.Find("End").position = objData.Endposition;
             // Vérifie que le prefab a un NetworkObject
             NetworkObject netObj = instance.GetComponent<NetworkObject>();
             if (netObj == null)
