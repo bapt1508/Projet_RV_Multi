@@ -304,11 +304,79 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.088466644, y: -7.6, z: 12.063157}
-  m_LocalScale: {x: 10, y: 1, z: 50}
+  m_LocalScale: {x: 50, y: 1, z: 50}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &238012042
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3449800607343765216, guid: 99d2458ea9ef1904aa52d61ecbf01eb2,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -11
+      objectReference: {fileID: 0}
+    - target: {fileID: 3449800607343765216, guid: 99d2458ea9ef1904aa52d61ecbf01eb2,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -35.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 3449800607343765216, guid: 99d2458ea9ef1904aa52d61ecbf01eb2,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3449800607343765216, guid: 99d2458ea9ef1904aa52d61ecbf01eb2,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3449800607343765216, guid: 99d2458ea9ef1904aa52d61ecbf01eb2,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3449800607343765216, guid: 99d2458ea9ef1904aa52d61ecbf01eb2,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3449800607343765216, guid: 99d2458ea9ef1904aa52d61ecbf01eb2,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3449800607343765216, guid: 99d2458ea9ef1904aa52d61ecbf01eb2,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3449800607343765216, guid: 99d2458ea9ef1904aa52d61ecbf01eb2,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3449800607343765216, guid: 99d2458ea9ef1904aa52d61ecbf01eb2,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7495704535555554895, guid: 99d2458ea9ef1904aa52d61ecbf01eb2,
+        type: 3}
+      propertyPath: m_Name
+      value: FogGround
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 99d2458ea9ef1904aa52d61ecbf01eb2, type: 3}
 --- !u!1 &904743099
 GameObject:
   m_ObjectHideFlags: 0
@@ -903,3 +971,4 @@ SceneRoots:
   - {fileID: 1098386189}
   - {fileID: 1946755266}
   - {fileID: 928088309}
+  - {fileID: 238012042}
