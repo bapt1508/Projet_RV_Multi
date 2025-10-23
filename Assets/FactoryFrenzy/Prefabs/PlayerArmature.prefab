@@ -638,6 +638,7 @@ GameObject:
   - component: {fileID: 7973152698743378888}
   - component: {fileID: 6084558874930357899}
   - component: {fileID: 449210767127183428}
+  - component: {fileID: 1899293910099225241}
   m_Layer: 8
   m_Name: PlayerArmature
   m_TagString: Player
@@ -1124,6 +1125,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lastCheckpointPos: {x: 0, y: 0, z: 0}
   lastCheckpointRot: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &1899293910099225241
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2133307137350716014}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc40b048073f1d04cbaa298759d3ad29, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2269649422091140199
 GameObject:
   m_ObjectHideFlags: 0
