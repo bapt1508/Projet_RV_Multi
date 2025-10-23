@@ -54,3 +54,9 @@ Ce dépôt contient **la partie PC multijoueurs** du POC.
 git clone <repo>
 # Ouvrir dans Unity
 # Lancer la scène StartUp pour test multi local/lan
+```
+
+---
+
+## Lien vers Editeur
+https://github.com/AlexCTZ/RV
